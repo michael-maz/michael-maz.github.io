@@ -1,0 +1,29 @@
+title:              Michael Maz
+email:              michaelmazspeaks@gmail.com
+description:        Careers and Financial Blog
+author:             Michael Maz
+baseurl:            ""
+url:                ""
+permalink: /blog/:title/
+
+
+# Social Profiles
+twitter_username:   
+github_username:    
+facebook_username:  
+instagram_username:  
+linkedin_username:
+tiktok_url: "https://www.tiktok.com/@_michaelmaz_"
+youtube_url: "https://www.youtube.com/channel/UCZ1cHwHO4othq6hccQFizBA"
+
+# Add your google-analytics ID here to activate google analytics
+google_analytics:   UA-XXXXXXXXX-X # out your google-analytics code
+
+# Build settings
+markdown:           kramdown
+paginate:           5
+paginate_path:      "/posts/page:num/"
+plugins:
+  - jekyll-feed
+  - jekyll-paginate
+  - jekyll-sitemap ## Uncomment this line to silently generate a sitemaps.org compliant sitemap for your Jekyll site

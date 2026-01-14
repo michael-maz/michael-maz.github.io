@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html>
+
+{% include head.html %}
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  if (!window.location.search.includes("sent=true")) return;
+
+  const observer = new MutationObserver(() => {
+    const msg = document.getElementById("thank-you-message");
+    if (msg) {
+      msg.style.display = "block";
+      setTimeout(() => {
+        msg.style.opacity = "0";
+      }, 3000);
+      observer.disconnect();
+    }
+  });
+
+  observer.observe(document.body, { childList: true, subtree: true });
+});
+</script>
+
+
+<body>
+
+  {% include navbar.html %}
+
+  {{ content }}
+
+  {% include footer.html %}
+
+  {% include scripts.html %}
+
+  {% include google-analytics.html %}
+
+</body>
+
+</html>

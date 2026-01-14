@@ -1,0 +1,49 @@
+---
+layout: page
+title: Contact Me
+description: Have questions? I have answers.
+background: '/img/bg-contact.jpg'
+form: true
+---
+
+<p>Want to get in touch? Fill out the form below to send me a message and I will get back to you as soon as possible!</p>
+<form
+  action="https://formspree.io/f/xreebbpd"
+  method="POST"
+>
+  <div class="control-group">
+    <input
+      type="text"
+      name="name"
+      class="form-control"
+      placeholder="Your Name"
+      required
+    >
+  </div>
+
+  <div class="control-group">
+    <input
+      type="email"
+      name="_replyto"
+      class="form-control"
+      placeholder="Your Email"
+      required
+    >
+  </div>
+
+  <div class="control-group">
+    <textarea
+      name="message"
+      class="form-control"
+      placeholder="Your Message"
+      rows="5"
+      required
+    ></textarea>
+  </div>
+
+  <br>
+
+  <button type="submit" class="btn btn-primary">
+    Send Message
+  </button>
+</form>
