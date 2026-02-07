@@ -1,2 +1,8 @@
 // Import Core Clean Blog SCSS
 @import "../assets/vendor/startbootstrap-clean-blog/scss/styles.scss";
+
+.post-heading h1,
+.page-heading h1,
+.site-heading h1 {
+  text-transform: none;
+}
