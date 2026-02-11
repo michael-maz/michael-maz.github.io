@@ -1,66 +1,41 @@
 ---
 layout: page
-title: Events
-background: '/img/bg-index.jpg'
+title: "Events"
+background: "/img/bg-post.jpg"
 permalink: /events/
 ---
 
-## Upcoming Events
+{% assign sorted_events = site.events | sort: "date" | reverse %}
 
-{% assign upcoming = site.events | where_exp: "event", "event.date >= site.time" | sort: "date" %}
+{% for event in sorted_events %}
 
-{% if upcoming.size > 0 %}
-<table class="table">
-  <thead>
-    <tr>
-      <th>Date</th>
-      <th>Event</th>
-      <th>Location</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-  {% for event in upcoming %}
-    <tr>
-    <td>{{ event.date | date: "%d %B %Y" }}</td>
-<td>{{ event.title }}</td>
-<td>{{ event.location }}</td>
-      <td>
-        <a href="{{ event.registration_link }}" class="btn btn-sm btn-primary" target="_blank">Register</a>
-      </td>
-    </tr>
-  {% endfor %}
-  </tbody>
-</table>
-{% else %}
-<p>No upcoming events at the moment.</p>
-{% endif %}
+<div class="card mb-4 shadow-sm">
+  <div class="card-body">
 
----
+    <h4 class="card-title">{{ event.title }}</h4>
 
-## Past Events
+    <p class="card-text">
+      <strong>Date:</strong> {{ event.date | date: "%d %B %Y" }}<br>
+      <strong>Location:</strong> {{ event.location }}
+    </p>
 
-{% assign past = site.events | where_exp: "event", "event.date < site.time" | sort: "date" | reverse %}
+    {% if event.description %}
+      <p class="card-text mt-3">
+        {{ event.description }}
+      </p>
+    {% endif %}
 
-{% if past.size > 0 %}
-<table class="table">
-  <thead>
-    <tr>
-      <th>Date</th>
-      <th>Event</th>
-      <th>Location</th>
-    </tr>
-  </thead>
-  <tbody>
-  {% for event in past %}
-    <tr>
-      <td>{{ event.date | date: "%d %B %Y" }}</td>
-      <td><a href="{{ event.url }}">{{ event.title }}</a></td>
-      <td>{{ event.location }}</td>
-    </tr>
-  {% endfor %}
-  </tbody>
-</table>
-{% else %}
-<p>No past events yet.</p>
-{% endif %}
+    {% if event.registration_link %}
+      <a href="{{ event.registration_link }}"
+         class="btn btn-primary mt-2"
+         target="_blank"
+         rel="noopener">
+         Register Here
+      </a>
+    {% endif %}
+
+  </div>
+</div>
+
+{% endfor %}
+
