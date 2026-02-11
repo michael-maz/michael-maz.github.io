@@ -28,33 +28,90 @@ layout: default
       <div class="col-lg-8 col-md-10 mx-auto">
 
         {{ content }}
+        <div class="text-center mb-4">
+  <script 
+    type="text/javascript"
+    src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js"
+    data-name="bmc-button"
+    data-slug="michaelmaz"
+    data-color="#FFDD00"
+    data-emoji="🍕"
+    data-font="Lato"
+    data-text="Buy me a pizza"
+    data-outline-color="#000000"
+    data-font-color="#000000"
+    data-coffee-color="#ffffff">
+  </script>
+</div>
+
 
         <!-- Home Post List -->
-        {% for post in site.posts limit : 5 %}
+        {% assign first_post = site.posts.first %}
 
-        <article class="post-preview">
-          <a href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}">
-            <h2 class="post-title">{{ post.title }}</h2>
-            {% if post.subtitle %}
-            <h3 class="post-subtitle">{{ post.subtitle }}</h3>
-            {% else %}
-            <h3 class="post-subtitle">{{ post.excerpt | strip_html | truncatewords: 15 }}</h3>
-            {% endif %}
-          </a>
-          <p class="post-meta">Posted by
-            {% if post.author %}
-            {{ post.author }}
-            {% else %}
-            {{ site.author }}
-            {% endif %}
-            on
-            {{ post.date | date: '%B %d, %Y' }} &middot; {% include read_time.html content=post.content %}            
-          </p>
-        </article>
+<!-- Latest Post -->
+<article class="post-preview">
+  <a href="{{ first_post.url | prepend: site.baseurl | replace: '//', '/' }}">
+    <h2 class="post-title">{{ first_post.title }}</h2>
+    {% if first_post.subtitle %}
+      <h3 class="post-subtitle">{{ first_post.subtitle }}</h3>
+    {% else %}
+      <h3 class="post-subtitle">
+        {{ first_post.excerpt | strip_html | truncatewords: 15 }}
+      </h3>
+    {% endif %}
+  </a>
+  <p class="post-meta">
+    Posted by {{ site.author }}
+    on {{ first_post.date | date: '%B %d, %Y' }}
+  </p>
+</article>
 
-        <hr>
+<hr>
 
-        {% endfor %}
+<!-- Sponsor Block -->
+<div class="text-center my-5">
+  <p class="text-muted small">Sponsored</p>
+
+  <a href="https://www.extern.com/?utm_source=TikTok&utm_medium=Social&utm_campaign=CreatorMichaelMaz"
+     target="_blank"
+     rel="noopener"
+     class="d-inline-block p-4 border rounded"
+     style="text-decoration:none; transition:0.3s;">
+
+    <h4 class="mb-2">Break Into Top Companies with Externships</h4>
+    <p class="mb-0 text-muted">
+      Build real-world experience with leading global firms.
+    </p>
+
+  </a>
+</div>
+
+<hr>
+
+<!-- Remaining Posts -->
+{% for post in site.posts offset:1 limit:4 %}
+
+<article class="post-preview">
+  <a href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}">
+    <h2 class="post-title">{{ post.title }}</h2>
+    {% if post.subtitle %}
+      <h3 class="post-subtitle">{{ post.subtitle }}</h3>
+    {% else %}
+      <h3 class="post-subtitle">
+        {{ post.excerpt | strip_html | truncatewords: 15 }}
+      </h3>
+    {% endif %}
+  </a>
+  <p class="post-meta">
+    Posted by {{ site.author }}
+    on {{ post.date | date: '%B %d, %Y' }}
+  </p>
+</article>
+
+<hr>
+
+{% endfor %}
+
 
         <!-- Pager -->
         <div class="clearfix">
