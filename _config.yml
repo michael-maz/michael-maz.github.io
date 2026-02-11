@@ -6,6 +6,10 @@ baseurl:            ""
 url:                ""
 permalink: /blog/:title/
 
+collections:
+  events:
+    output: true
+    permalink: /events/:name/
 
 # Social Profiles
 twitter_username:   
