@@ -11,6 +11,11 @@ collections:
     output: true
     permalink: /events/:name/
 
+  opportunities:
+    output: true
+    permalink: /opportunities/:name/
+
+
 # Social Profiles
 twitter_username:   
 github_username:    

@@ -1,0 +1,43 @@
+---
+layout: page
+title: "Opportunities"
+background: '/img/bg-post.jpg'
+---
+
+{% assign sorted_opps = site.opportunities | sort: "date_posted" | reverse %}
+
+
+{% for opp in sorted_opps %}
+
+<div class="card mb-4 shadow-sm">
+  <div class="card-body">
+
+    <h4 class="card-title">{{ opp.title }}</h4>
+
+    <p class="card-text">
+        {% if opp.date_posted %}
+    <strong>Date Posted:</strong> {{ opp.date_posted | date: "%d %B %Y" }}<br>
+  {% endif %}
+      <strong>Location:</strong> {{ opp.location }}<br>
+      <strong>Salary:</strong> {{ opp.salary }}<br>
+      <strong>Type:</strong> {{ opp.type }}<br>
+      <strong>Deadline:</strong> {{ opp.deadline }}
+    </p>
+
+    {% if opp.description %}
+      <p class="card-text mt-3">
+        {{ opp.description }}
+      </p>
+    {% endif %}
+
+    <a href="{{ opp.apply_link }}"
+       class="btn btn-primary mt-2"
+       target="_blank"
+       rel="noopener">
+       View Opportunity
+    </a>
+
+  </div>
+</div>
+
+{% endfor %}
