@@ -29,19 +29,7 @@ layout: default
 
         {{ content }}
         <div class="text-center mb-4">
-  <script 
-    type="text/javascript"
-    src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js"
-    data-name="bmc-button"
-    data-slug="michaelmaz"
-    data-color="#FFDD00"
-    data-emoji="☕"
-    data-font="Lato"
-    data-text="Buy me a coffee"
-    data-outline-color="#000000"
-    data-font-color="#000000"
-    data-coffee-color="#ffffff">
-  </script>
+  
 </div>
 
 
@@ -68,26 +56,25 @@ layout: default
 
 <hr>
 
-<!-- Sponsor Block -->
+<!-- Ask a Question Block -->
 <div class="text-center my-5">
-  <p class="text-muted small">Sponsored</p>
 
-  <a href="https://www.extern.com/?utm_source=TikTok&utm_medium=Social&utm_campaign=CreatorMichaelMaz"
-     target="_blank"
-     rel="noopener"
-     class="d-inline-block p-4 border rounded"
-     style="text-decoration:none; transition:0.3s;">
+  <h3 class="mb-3">Get your question answered on TikTok and Instagram</h3>
 
-    <h4 class="mb-2">Break Into Top Companies with Externships</h4>
-    <p class="mb-0 text-muted">
-      Build real-world experience with leading global firms.
-    </p>
+     <script async src="https://js.stripe.com/v3/buy-button.js"></script>
 
-  </a>
+  <stripe-buy-button
+    buy-button-id="buy_btn_1TD1eRGXj6wLl6FgZ9mzKekh"
+    publishable-key="pk_live_51OUpFXGXj6wLl6Fg1tvgmOS20MQ7PAQRyNO3IKJCoMLEWDH5MDPBdknn76xYkS90V5HhxDB23h43Vj1CMRbPv8kA001kBGqJlS">
+  </stripe-buy-button>
+
+  <p class="text-muted mt-3">
+    After payment, you will be redirected to submit your question.
+  </p>
+
 </div>
 
 <hr>
-
 <!-- Remaining Posts -->
 {% for post in site.posts offset:1 limit:4 %}
 
