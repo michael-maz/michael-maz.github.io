@@ -22,3 +22,23 @@
   width: 26px;
   height: 26px;
 }
+
+.btn-ask-question {
+  background-color: #ffcf4a;
+  border: 1px solid #a46700;
+  border-radius: 999px;
+  color: #2b2110;
+  letter-spacing: normal;
+  text-transform: none;
+}
+
+.btn-ask-question:hover,
+.btn-ask-question:focus {
+  background-color: #ffbd22;
+  color: #2b2110;
+}
+
+.btn-ask-question:focus {
+  outline: 2px solid #2b2110;
+  outline-offset: 3px;
+}
