@@ -28,10 +28,6 @@ layout: default
       <div class="col-lg-8 col-md-10 mx-auto">
 
         {{ content }}
-        <div class="text-center mb-4">
-  
-</div>
-
 
         <!-- Home Post List -->
         {% assign first_post = site.posts.first %}
@@ -56,29 +52,8 @@ layout: default
 
 <hr>
 
-<!-- Ask a Question Block -->
-<div class="text-center my-5">
-
-  <h3 class="mb-3">Get your question answered</h3>
-
-  <p class="mb-4">
-    Submit your question and receive a personalised video response of up to 1 minute, depending on the context.
-  </p>
-
-  <a href="https://buymeacoffee.com/michaelmaz/e/575111"
-     class="btn btn-primary btn-lg">
-    Ask Your Question
-  </a>
-
-  <p class="text-muted mt-3">
-    Secure payment through Buy Me a Coffee.
-  </p>
-
-</div>
-
-<hr>
 <!-- Remaining Posts -->
-{% for post in site.posts offset:1 limit:4 %}
+{% for post in site.posts offset:1 limit:2 %}
 
 <article class="post-preview">
   <a href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}">
@@ -104,8 +79,15 @@ layout: default
 
         <!-- Pager -->
         <div class="clearfix">
-          <a class="btn btn-primary float-right" href="{{"/posts" | relative_url }}">View All Posts &rarr;</a>
+          <a class="btn btn-primary float-right" href="{{ "/blog/" | relative_url }}">View All Posts &rarr;</a>
         </div>
+
+        <hr>
+
+        <p class="small mb-4">
+          Have a career or university question?
+          <a class="text-primary" href="{{ '/ask/' | relative_url }}">Ask me for a personalised video reply.</a>
+        </p>
 
       </div>
     </div>
